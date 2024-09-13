@@ -28,22 +28,16 @@
                                     <label for="text_password" class="form-label">Password</label>
                                     <input type="password" class="form-control bg-dark text-info" name="text_password"
                                         value="{{ old('text_password') }}" required>
-                                    {{-- show error --}}
-                                    @error('text_password')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
+                                        {{-- show error --}}
+                                        @error('text_password')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
                                 </div>
                                 <div class="mb-3">
                                     <button type="submit" class="btn btn-secondary w-100">LOGIN</button>
                                 </div>
                             </form>
 
-                            {{-- invalid login --}}
-                            @if (session('loginError'))
-                                <div class="alert alert-danger text-center">
-                                    {{ session('loginError') }}
-                                </div>
-                            @endif
                         </div>
                     </div>
 
@@ -51,6 +45,15 @@
                     <div class="text-center text-secondary mt-3">
                         <small>&copy; <?= date('Y') ?> Estudos Laravel</small>
                     </div>
+
+                    {{-- errors no final dos inputs
+                    @if ($errors->any())
+                        <div class="alert alert-danger mt-3">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </div>
+                    @endif --}}
                 </div>
             </div>
         </div>
