@@ -42,8 +42,6 @@ class AuthController extends Controller
         }catch(\PDOException $e){
             echo "Connection failed:" . $e->getMessage();
         }
-
-        echo "FIM ...";
     }
 
     public function logout()
