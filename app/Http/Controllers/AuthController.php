@@ -45,6 +45,7 @@ class AuthController extends Controller
                 ->withInput()
                 ->with('loginError', 'Username ou password incorretos.');
         }
+<<<<<<< HEAD
 
         // check if password is correct
         if (!password_verify($password, $user->password)) {
@@ -91,6 +92,8 @@ class AuthController extends Controller
 
         // echo "<pre>";
         // print_r($users);
+=======
+>>>>>>> 17db6d50f2328136af673090ff36239f869a4333
     }
 
     public function logout()
