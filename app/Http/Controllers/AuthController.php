@@ -58,7 +58,7 @@ class AuthController extends Controller
         $user->last_login = date('Y-m-d H:i:s');
         $user->save();
 
-        // login user
+        // login user (coloca os dados do usuário logado na sessão)
         session([
              'user' => [
                 'id' => $user->id,
@@ -66,8 +66,9 @@ class AuthController extends Controller
              ]
         ]);
 
+        // dd($user);
 
-        echo "Login efetudo com sucesso";
+        // echo "Login efetudo com sucesso";
 
         // test database connection
         // try{
@@ -95,6 +96,8 @@ class AuthController extends Controller
 
     public function logout()
     {
-        //
+        // Removendo o usuário que existe na sessão.
+        session()->forget('user');
+        return redirect()->to('/login');
     }
 }
